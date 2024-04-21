@@ -3,6 +3,7 @@ import Layout from "./layouts/layout";
 import { HomePage } from "./pages/HomePage";
 import AuthCallbackPage from "./pages/AuthCallbackPage";
 import { UserProfilePage } from "./pages/UserProfilePage";
+import ProtectedRoute from "./auth/ProtectedRoute";
 
 // specifies group of routes. It makes main.tsx code cleaner to have a separate file that has routes. You just need to add more routes here if needed.
 export const AppRoutes = () => {
@@ -17,14 +18,17 @@ export const AppRoutes = () => {
         }
       />
       <Route path="/auth-callback" element={<AuthCallbackPage />} />
-      <Route
-        path="/user-profile"
-        element={
-          <Layout >
-            <UserProfilePage />
-          </Layout>
-        }
-      />
+      <Route element={<ProtectedRoute />}>
+        <Route
+          path="/user-profile"
+          element={
+            <Layout>
+              <UserProfilePage />
+            </Layout>
+          }
+        />
+      </Route>
+
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
