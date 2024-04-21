@@ -19,7 +19,9 @@ type CreateUserRequest = {
 // 2. Server stores a session in a database and response with the session Id
 // 3. Browser puts session Id in cookies.
 // 4. Browser sends cookies with future requests
+// Disadvantage of session: session id is stored either in a database or keep it in memory on a server
 
+// Note: For session, authentication is handled on the server while tokens are managed on the client side
 
 
 export const useCreateMyUser = () => {
