@@ -17,8 +17,7 @@ export const AppRoutes = () => {
       />
       <Route path="/auth-callback" element={<AuthCallbackPage />} />
       <Route path="/user-profile" element={<span>USER PROFILE PAGE</span>} />
-      <Route path="*" element={<Navigate to="/" />} /> /** If undefined path
-      calls occured, navigate to home page */
+      <Route path="*" element={<Navigate to="/" />} /> 
     </Routes>
   );
 };
