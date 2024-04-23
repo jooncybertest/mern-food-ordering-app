@@ -4,7 +4,8 @@ import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
 import myUserRoute from "./routes/MyUserRoute";
-import { v2 as cloudinary } from 'cloudinary';
+import { v2 as cloudinary } from "cloudinary";
+import MyRestaurantRoute from "./routes/MyRestaurantRoute";
 
 //connect database
 mongoose
@@ -15,7 +16,7 @@ cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
-})
+});
 
 const app = express();
 // adds middleware to my Express application that automatically parses incoming requests with JSON payloads.
@@ -27,11 +28,13 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/health", async (req: Request, res: Response) => {
-  res.send({ message: "health OK!" }); 
+  res.send({ message: "health OK!" });
 });
 
 // if user goes to /api/my/user, server gets to the MyUserRoute.ts
 app.use("/api/my/user", myUserRoute);
+
+app.use("/api/my/restaurant", MyRestaurantRoute);
 
 app.listen(3000, () => {
   console.log("server started on localhost:3000");
