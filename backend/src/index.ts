@@ -27,6 +27,7 @@ app.use(express.json());
 //Without this, web applications hosted on different domains from your server wouldn't be able to interact with it.
 app.use(cors());
 
+// health check
 app.get("/health", async (req: Request, res: Response) => {
   res.send({ message: "health OK!" });
 });
