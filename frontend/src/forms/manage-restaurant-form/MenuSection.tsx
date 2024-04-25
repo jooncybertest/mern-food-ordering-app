@@ -3,7 +3,7 @@ import { FormDescription, FormField, FormItem } from "@/components/ui/form";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import MenuItemInput from "./MenuItemInput";
 
-export const MenuSection = () => {
+const MenuSection = () => {
   const { control } = useFormContext();
 
   const { fields, append, remove } = useFieldArray({
@@ -39,3 +39,5 @@ export const MenuSection = () => {
     </div>
   );
 };
+
+export default MenuSection;

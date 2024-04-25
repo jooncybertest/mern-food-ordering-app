@@ -21,7 +21,7 @@ const MenuItemInput = ({ index, removeMenuItem }: Props) => {
     <div className="flex flex-row items-end gap-2">
       <FormField
         control={control}
-        name={`memuItems.${index}.name`}
+        name={`menuItems.${index}.name`}
         render={({ field }) => (
           <FormItem>
             <FormLabel className="flex items-center gap-1">
@@ -39,15 +39,14 @@ const MenuItemInput = ({ index, removeMenuItem }: Props) => {
       />
       <FormField
         control={control}
-        name={`memuItems.${index}.price`}
+        name={`menuItems.${index}.price`}
         render={({ field }) => (
           <FormItem>
             <FormLabel className="flex items-center gap-1">
-              Price ($)
-              <FormMessage />
+              Price (£) <FormMessage />
             </FormLabel>
             <FormControl>
-              <Input {...field} placeholder="8.99" className="bg-white" />
+              <Input {...field} placeholder="8.00" className="bg-white" />
             </FormControl>
           </FormItem>
         )}
