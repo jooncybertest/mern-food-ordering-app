@@ -40,7 +40,7 @@ export const SearchPage = () => {
       <div id="cuisines-list">insert cuisines here :)</div>
       <div id="main-content" className="flex flex-col gap-5">
         <SearchBar
-          searchQuery = {searchState.searchQuery}
+          searchQuery={searchState.searchQuery}
           onSubmit={setSearchQuery}
           placeHolder="Search by Cuisine or Restaurant Name"
           onReset={resetSearch}
