@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SortOptionDropdwon from "./SortOptionDropdown";
 
 type Props = {
   total: number;
@@ -17,7 +18,6 @@ const SearchResultInfo = ({ total, city }: Props) => {
           Change Location
         </Link>
       </span>
-      insert sort dropdown here
     </div>
   );
 };
