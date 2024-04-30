@@ -6,6 +6,7 @@ import { UserProfilePage } from "./pages/UserProfilePage";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import ManageRestaurantPage from "./pages/ManageRestaurantPage";
 import { SearchPage } from "./pages/SearchPage";
+import { DetailPage } from "./pages/DetailPage";
 
 // specifies group of routes. It makes main.tsx code cleaner to have a separate file that has routes. You just need to add more routes here if needed.
 export const AppRoutes = () => {
@@ -25,6 +26,14 @@ export const AppRoutes = () => {
         element={
           <Layout showHero={false}>
             <SearchPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/detail/:restaurantId"
+        element={
+          <Layout showHero={false}>
+            <DetailPage />
           </Layout>
         }
       />
