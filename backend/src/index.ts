@@ -7,6 +7,7 @@ import myUserRoute from "./routes/MyUserRoute";
 import { v2 as cloudinary } from "cloudinary";
 import MyRestaurantRoute from "./routes/MyRestaurantRoute";
 import restaurantRoute from "./routes/ResataurantRoute";
+import orderRoute from "./routes/OrderRoute";
 
 //connect database
 mongoose
@@ -35,10 +36,9 @@ app.get("/health", async (req: Request, res: Response) => {
 
 // if user goes to /api/my/user, server gets to the MyUserRoute.ts
 app.use("/api/my/user", myUserRoute);
-
 app.use("/api/my/restaurant", MyRestaurantRoute);
-
 app.use("/api/restaurant", restaurantRoute);
+app.use("/api/order", orderRoute);
 
 app.listen(3000, () => {
   console.log("server started on localhost:3000");
