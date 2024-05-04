@@ -9,7 +9,7 @@ import MyRestaurantRoute from "./routes/MyRestaurantRoute";
 import restaurantRoute from "./routes/ResataurantRoute";
 import orderRoute from "./routes/OrderRoute";
 
-//connect database
+
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
   .then(() => console.log("Connected to database!"));
@@ -21,20 +21,17 @@ cloudinary.config({
 });
 
 const app = express();
-// adds middleware to my Express application that automatically parses incoming requests with JSON payloads.
-// It allows the server to easily read JSON data sent in the body of requests, which is common in API communication.
-app.use(express.json());
-//This line enables CORS (Cross-Origin Resource Sharing) on your server.
-//CORS is a security feature that allows or restricts requests to your server based on the origin (i.e., the domain) of the request.
-//Without this, web applications hosted on different domains from your server wouldn't be able to interact with it.
 app.use(cors());
 
-// health check
+app.use("/api/order/checkout/webhook", express.raw({ type: "*/*" }));
+
+app.use(express.json());
+
+
 app.get("/health", async (req: Request, res: Response) => {
   res.send({ message: "health OK!" });
 });
 
-// if user goes to /api/my/user, server gets to the MyUserRoute.ts
 app.use("/api/my/user", myUserRoute);
 app.use("/api/my/restaurant", MyRestaurantRoute);
 app.use("/api/restaurant", restaurantRoute);
