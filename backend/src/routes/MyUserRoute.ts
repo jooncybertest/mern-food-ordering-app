@@ -18,11 +18,5 @@ router.put(
   MyUserController.updateCurrentUser
 );
 
-router.patch(
-  "/order/:orderId/status",
-  jwtCheck,
-  jwtParse,
-  MyRestaurantController.updateOrderStatus
-);
 
 export default router;

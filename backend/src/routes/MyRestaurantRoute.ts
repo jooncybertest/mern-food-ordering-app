@@ -41,4 +41,11 @@ router.put(
   MyRestaurantController.updateMyRestaurant
 );
 
+router.patch(
+  "/order/:orderId/status",
+  jwtCheck,
+  jwtParse,
+  MyRestaurantController.updateOrderStatus
+);
+
 export default router;
